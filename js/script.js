@@ -77,6 +77,20 @@ function playRound(playerSelection, computerSelection){
     return result;
 }
 
+/*
+    Create a function called game() which plays five rounds of rock paper scissors and logs each match in the console.
+    game()
+        for each iteration up to five iterations
+            playMatch()
+            log the result
+*/
+
+function game(rounds){
+    for (let i = 0; i < rounds; i++){
+        const computer = getComputerChoice();
+        console.log(playRound(player, computer))
+    }
+}
 const player = "Rock";
-const computer = getComputerChoice();
-playRound(player, computer);
+
+game(5);
