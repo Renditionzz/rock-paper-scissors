@@ -72,7 +72,7 @@ function playRound(playerSelection, computerSelection){
             result = "Tie!";
         }
     } else {
-        result = "Invalid, please try again!";
+        result = false;
     }
     return result;
 }
@@ -81,16 +81,22 @@ function playRound(playerSelection, computerSelection){
     Create a function called game() which plays five rounds of rock paper scissors and logs each match in the console.
     game()
         for each iteration up to five iterations
-            playMatch()
+            computer chooses a move
+            play a round
             log the result
 */
 
 function game(rounds){
     for (let i = 0; i < rounds; i++){
         const computer = getComputerChoice();
-        console.log(playRound(player, computer))
+        const player = prompt("Please choose Rock, Paper, or Scissors!")
+        const result = playRound(player, computer);
+        if (!result){
+            console.log("You entered an incorrect value. Please try again!");
+            return game(rounds);
+        }
+        console.log(result);
     }
 }
-const player = "Rock";
 
 game(5);
