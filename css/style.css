@@ -28,6 +28,10 @@ button {
     border-radius: 15px;
     border:none;
     font-size:24px;
+    transition: transform 0.5s;
+}
+button:hover {
+    transform: scale(1.1);
 }
 h2, div {
     color: #F5F1ED;
