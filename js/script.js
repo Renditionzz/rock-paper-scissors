@@ -52,15 +52,17 @@ function playRound(){
 function scoreHandler(){
     const winContainer = document.querySelector(".wins");
     const lossContainer = document.querySelector(".losses");
-
-    winContainer.textContent = winLoss.win;
-    lossContainer.textContent = winLoss.loss;
-
     if (winLoss.win == 5){
         alert("Player wins!");
+        winLoss.win = 0;
+        winLoss.loss = 0;
     } else if (winLoss.loss == 5){
         alert("Computer Wins!");
+        winLoss.win = 0;
+        winLoss.loss = 0;
     }
+    winContainer.textContent = winLoss.win;
+    lossContainer.textContent = winLoss.loss;
 }
 
 const buttons = document.querySelectorAll("button");
