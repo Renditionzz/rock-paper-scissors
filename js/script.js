@@ -85,7 +85,7 @@ function playRound(playerSelection, computerSelection){
             play a round
             log the result
 */
-
+/*
 function game(rounds){
     for (let i = 0; i < rounds; i++){
         const computer = getComputerChoice();
@@ -100,3 +100,4 @@ function game(rounds){
 }
 
 game(5);
+*/
