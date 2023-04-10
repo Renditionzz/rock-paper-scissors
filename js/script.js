@@ -43,38 +43,51 @@ function getComputerChoice(){
             invalid answer, try again
         
 */
+let winLoss = {
+    win:0,
+    loss:0
+}
+function playRound(){
+    const results = document.querySelector(".results");
+    const player = this.textContent;
+    const computerSelection = getComputerChoice();
 
-function playRound(playerSelection, computerSelection){
-    const player = playerSelection.toLowerCase();
-    let result;
-    if (player == "rock"){
+    if (player == "Rock"){
         if (computerSelection == "Rock"){
-            result = "Tie!";
+            results.textContent = "Tie!";
         } else if (computerSelection == "Paper"){
-            result = "You lose! Paper beats Rock!";
+            results.textContent = "You lose! Paper beats Rock!";
+            winLoss.loss++;
         } else {
-            result = "You win! Rock beats Scissors!";
+            results.textContent = "You win! Rock beats Scissors!";
+            winLoss.win++;
         }
-    } else if (player == "paper"){
+    } else if (player == "Paper"){
         if (computerSelection == "Rock"){
-            result = "You win! Paper beats Rock!"
+            results.textContent = "You win! Paper beats Rock!"
+            winLoss.win++;
         } else if (computerSelection == "Paper"){
-            result = "Tie!";
+            results.textContent = "Tie!";
         } else {
-            result = "You lose! Scissors beats Paper!"
+            results.textContent = "You lose! Scissors beats Paper!";
+            winLoss.loss++;
         }
-    } else if (player == "scissors"){
+    } else if (player == "Scissors"){
         if (computerSelection == "Rock"){
-            result = "You lose! Rock beats Scissors!"
+            results.textContent = "You lose! Rock beats Scissors!";
+            winLoss.loss++;
         } else if (computerSelection == "Paper"){
-            result = "You win! Scissors beats Paper!"
+            results.textContent = "You win! Scissors beats Paper!";
+            winLoss.win++;
         } else {
-            result = "Tie!";
+            results.textContent = "Tie!";
         }
-    } else {
-        result = false;
     }
-    return result;
+    if (winLoss.win == 5){
+        alert("Player wins!");
+    } else if (winLoss.loss == 5){
+        alert("Computer Wins!");
+    }
 }
 
 /*
@@ -101,3 +114,7 @@ function game(rounds){
 
 game(5);
 */
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => button.addEventListener("click", playRound))
